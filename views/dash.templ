@@ -1,95 +1,92 @@
 package views
 
 import "github.com/saintmalik/delta/model"
+
 // import "fmt"
-
 templ Dash(packages []model.Mypack) {
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            @templ.Raw("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">")
-            <script src="https://unpkg.com/htmx.org@1.9.12" type="text/javascript"></script>
-            <script src="https://cdn.tailwindcss.com"></script>
-            // <link rel="stylesheet" href="/assets/styles.css"/>
-            <title>Package Updates</title>
-        </head>
-        <body>
-
-<div class="flex flex-col h-screen">
-  <div class="px-4 py-4 md:px-6">
-    <div class="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
-      <div class="flex items-center gap-4">
-        <h1 class="text-2xl font-bold">Package Dashboard</h1>
-      </div>
-    </div>
-  </div>
-    <div class="flex justify-end mt-4 gap-2 p-4 md:p-6">
-    <a
-      class="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors dark:border-gray-800 hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-      hx-swap="transition:true"
-      href="/check"
-    >
-      Check Changelogs
-    </a>
-    <a
-      class="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-gray-700 px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-600 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus-visible:ring-gray-300"
-      hx-swap="transition:true"
-      href="/package"
-    >
-      Add Package
-    </a>
-  </div>
-  <div class="flex-1 overflow-auto p-4 md:p-6">
-    <div class="border rounded-lg shadow-sm overflow-x-auto">
-      <div class="relative w-full overflow-auto">
-        <table class="w-full caption-bottom text-sm">
-          <thead class="[&amp;_tr]:border-b">
-            <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-
-              <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                Package Name
-              </th>
-              <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                Package Version
-              </th>
-              <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                Package URL
-              </th>
-            </tr>
-          </thead>
-          if len(packages) != 0 {
-          <tbody class="[&amp;_tr:last-child]:border-0">
-                       for _, pack := range packages {
-            <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-            //   <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{ strconv.Itoa(int( pack.ID)) }</td>
-              <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{ pack.PackageName }</td>
-              <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{ pack.PackageVersion }</td>
-              <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                <a
- 									hx-swap="transition:true"
- 									href={ templ.URL(pack.PackageURL) }
- 									class="badge badge-primary p-3 hover:scale-[1.1] text-blue-500"
-								target="_blank">
-                  { pack.PackageName }
-                </a>
-              </td>
-            </tr>
-            }
-
-          </tbody>
-          } else {
-            <tbody>
-                <tr>
-                    <td colspan="4" align="center"> You do not have any package yet </td>
-                </tr>
-            </tbody>
-       }
-        </table>
-      </div>
-    </div>
-  </div>
-
-</div>
-    </body>
-    </html>
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			@templ.Raw("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">")
+			<script src="https://unpkg.com/htmx.org@1.9.12" type="text/javascript"></script>
+			<script src="https://cdn.tailwindcss.com"></script>
+			// <link rel="stylesheet" href="/assets/styles.css"/>
+			<title>Package Updates</title>
+		</head>
+		<body>
+			<div class="flex flex-col h-screen">
+				<div class="px-4 py-4 md:px-6">
+					<div class="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
+						<div class="flex items-center gap-4">
+							<h1 class="text-2xl font-bold">Package Dashboard</h1>
+						</div>
+					</div>
+				</div>
+				<div class="flex justify-end mt-4 gap-2 p-4 md:p-6">
+					<a
+						class="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors dark:border-gray-800 hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+						hx-swap="transition:true"
+						href="/check"
+					>
+						Check Changelogs
+					</a>
+					<a
+						class="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-gray-700 px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-600 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus-visible:ring-gray-300"
+						hx-swap="transition:true"
+						href="/package"
+					>
+						Add Package
+					</a>
+				</div>
+				<div class="flex-1 overflow-auto p-4 md:p-6">
+					<div class="border rounded-lg shadow-sm overflow-x-auto">
+						<div class="relative w-full overflow-auto">
+							<table class="w-full caption-bottom text-sm">
+								<thead class="[&_tr]:border-b">
+									<tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+										<th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+											Package Name
+										</th>
+										<th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+											Package Version
+										</th>
+										<th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+											Package URL
+										</th>
+									</tr>
+								</thead>
+								if len(packages) != 0 {
+									<tbody class="[&_tr:last-child]:border-0">
+										for _, pack := range packages {
+											<tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+												//   <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{ strconv.Itoa(int( pack.ID)) }</td>
+												<td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">{ pack.PackageName }</td>
+												<td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">{ pack.PackageVersion }</td>
+												<td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
+													<a
+														hx-swap="transition:true"
+														href={ templ.URL(pack.PackageURL) }
+														class="badge badge-primary p-3 hover:scale-[1.1] text-blue-500"
+														target="_blank"
+													>
+														{ pack.PackageName }
+													</a>
+												</td>
+											</tr>
+										}
+									</tbody>
+								} else {
+									<tbody>
+										<tr>
+											<td colspan="4" align="center">You do not have any package yet </td>
+										</tr>
+									</tbody>
+								}
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</body>
+	</html>
 }
