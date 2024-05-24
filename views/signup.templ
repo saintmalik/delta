@@ -11,49 +11,53 @@ templ HomePage() {
 			// <link rel="stylesheet" href="/assets/styles.css"/>
 			<title>Chart Delta Sakinah</title>
 		</head>
-		<body class="bg-gray-100 flex flex-col min-h-screen">
-			<section class="flex-grow">
-				<div class="bg-gray-100 py-12">
-					<div class="container mx-auto px-6 md:px-12 lg:px-24">
-						<div class="flex flex-col md:flex-row items-center md:space-x-12">
-							<div class="md:w-1/2 mb-8 md:mb-0">
-								<h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 text-center md:text-left">Chart Delta Sakinah</h1>
-								<div class="text-center md:text-left mb-12">
-									<h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">Tired of hunting for chart repositories?</h2>
-									<p class="mt-4 text-lg md:text-xl text-gray-600">Break free from Helm chart release update chaos - your path to effortless management.</p>
-								</div>
-								<div class="space-y-8">
-									<div class="bg-white rounded-lg shadow-lg p-8">
-										<h2 class="text-2xl font-bold text-gray-900 mb-4">One Place for All Your Charts</h2>
-										<p class="text-gray-700 text-base leading-relaxed">
-											Centralize all your Helm charts in a single location. Stay updated with notifications on new releases. Easily compare versions and visualize changes.
-										</p>
-									</div>
-									<div class="bg-white rounded-lg shadow-lg p-8">
-										<h2 class="text-2xl font-bold text-gray-900 mb-4">Simplify Your Helm Workflow</h2>
-										<p class="text-gray-700 text-base leading-relaxed">
-											Regain your sanity. Try our solution today and experience the ease of managing your Helm charts in one place.
-										</p>
-									</div>
-								</div>
-								<div class="mt-8 text-center md:text-left">
-									@signupWithGithub()
-								</div>
-							</div>
-							<div class="md:w-1/2 hidden md:flex justify-center">
-								<img src="https://sendwish.saintmalik.me/image.webp" alt="Illustration" class="rounded-lg shadow-lg max-w-full h-auto"/>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<footer class="bg-gray-800 text-white py-4 mt-auto">
-				<div class="container mx-auto px-6 md:px-12 text-center">
-					<p>Built with ♡ by Saintmalik, Styled by ariyo</p>
-				</div>
-			</footer>
-		</body>
-	</html>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <section class="flex-grow">
+        <div class="bg-gray-100 py-12">
+            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+                <div class="flex flex-col md:flex-row items-start md:space-x-12">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 text-center md:text-left">Chart Delta Sakinah</h1>
+                        <div class="text-center md:text-left mb-12">
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">Tired of hunting for chart repositories?</h2>
+                            <p class="mt-4 text-lg md:text-xl text-gray-600">Break free from Helm chart release update chaos - your path to effortless management.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 hidden md:flex items-start py-4">
+                        <img src="../happy1.png" alt="Illustration" class="rounded-lg shadow-lg max-w-full h-auto"/>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0">
+                    <div class="bg-white rounded-lg shadow-lg p-8 md:flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">One Place for All Your Charts</h2>
+                        <p class="text-gray-700 text-base leading-relaxed">
+                            Centralize all your Helm charts in a single location. Stay updated with notifications on new releases. Easily compare versions and visualize changes.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-8 md:flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Simplify Your Helm Workflow</h2>
+                        <p class="text-gray-700 text-base leading-relaxed">
+                            Regain your sanity. Try our solution today and experience the ease of managing your Helm charts in one place.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-8 w-full">
+                    <div class="text-center md:text-left">
+                        @signupWithGithub()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-800 text-white py-4 mt-auto">
+        <div class="container mx-auto px-6 md:px-12 text-center">
+            <p>Built with ♡ by Saintmalik, Styled by Ariyo Aresa</p>
+        </div>
+    </footer>
+</body>
+
+</html>
 }
 
 templ signupWithGithub() {
